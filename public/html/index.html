@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nl">
+
+  <head>
+    <title>Publicatietool</title>
+    <style>
+    .pageTitle {
+      padding-top: 30px;
+      padding-bottom: 100px;
+    }
+    </style>
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container pageTitle">
+      <div class="text-center">
+        <h1>Publicatietool</h1>
+        <h6>
+          Voor het opstellen van standaardpublicaties. <br>
+          Makkelijk, simpel en betrouwbaar. 
+        </h6>
+      </div>
+    </div>
+    
+    <div class="container">
+      <form action="/publicatietool/create" method="POST">
+        <div class="form-group">
+          <label for="email">Emailadres waar de bestanden naartoe gestuurd worden.</label>
+          <input name="email" type="email" class="form-control" id="email" placeholder="voorbeeld@zaanstad.nl" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="besluittype">Selecteer het besluittype</label>
+            <select name="besluittype" class="form-control" id="besluittype" required>
+              <option>Ontwerpbestemmingsplan</option>
+              <option>Vaststelling bestemmingsplan</option>
+            </select>
+          </div>
+          <div class="form-group col">
+              <label for="besluitdatum">Wanneer is het besluit genomen?</label>
+              <input name="besluitdatum" type="date" class="form-control" id="besluitdatum" required>
+          </div>
+          <div class="form-row">
+              <div class="form-group col">
+              </div>
+              <div class="form-group col">
+                  <label for="publicatiedatum">Selecteer de verwachte publicatiedatum</label>
+                  <input name="publicatiedatum" type="date" class="form-control" id="publicatiedatum" required>
+              </div>
+        <div class="form-group">
+          <label for="omschrijving1">Korte beschrijving van het plan</label>
+          <textarea name="omschrijving1" class="form-control" id="omschrijving1" rows="5" aria-describedby="omschrijving1Help" required></textarea>
+          <small id="omschrijving1Help" class="form-text text-muted">
+            Dit moet een korte beschrijving zijn die in de eerste alinea 
+            van de publicatie komt te staan. Wat kenmerkt dit besluit? 
+            Maakt het woningbouw mogelijk? Is het een technische aanpassing? 
+            </small>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Maak publicatie</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  
+</html>
