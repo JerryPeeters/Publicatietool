@@ -15,20 +15,20 @@ async function create(data, template, outputname) { //async, so return promise o
         
 
     let zip = new JSZip(content);
-    
+ 
     let doc = new docxtemplater();
     
     doc.loadZip(zip);
-    
+
     doc.setData(data);    
-    
+
     doc.render();
 
     let buffer = doc.getZip()
                     .generate({type: 'nodebuffer'});
 
     let outputPath = path.resolve(__dirname, 'output', outputname + '.docx')
-    
+
     await fs.writeFile(outputPath, buffer);
 
     return outputPath;

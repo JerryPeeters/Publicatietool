@@ -44,6 +44,7 @@ exports.setTemplates = function(obj) {
             }
         }
     }
+    return obj;
 }
 
 exports.setTerms = function(obj) {
