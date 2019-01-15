@@ -36,7 +36,7 @@ async function docxTest() {
         'contactpersoon': 'J. Peeters',
         'bereikbaarheid_contactpersoon': '10:00 en 10:30, behalve op woensdagen,',
         'aanhef_contactpersoon': 'dhr.',
-        'contactpersoon_hemhaar': 'hem'
+        'contactpersoon_hemhaar': 'hem' //automatisch
 
     };
 

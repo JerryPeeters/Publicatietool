@@ -1,0 +1,49 @@
+html
+    head
+        title Publicatietool
+        link(href="/bootstrap/css/bootstrap.min.css" rel="stylesheet")
+        style.
+            .pageTitle {
+                padding-top: 30px;
+                padding-bottom: 100px;
+            }
+
+    body
+        .container.pageTitle
+            .text-center
+                h1 Publicatietool
+                h6 
+                | Voor het opstellen van standaardpublicaties. 
+                br 
+                |Makkelijk, simpel en betrouwbaar.
+        .container
+            
+            form(action="/publicatietool/create" method="POST")
+                each ask in formObj
+                    div(class="form-group")
+                        
+                        if ask.label 
+                            label(for= ask.id) #{ask.label}
+                        
+                        if ask.options
+                            select(class='form-control' name=ask.id id=ask.id type=ask.type placeholder=ask.placeholder aria-describedby=ask.idhelp rows=ask.rows required)
+                                each opt in ask.options
+                                    option #{opt}
+
+                        else if ask.rows
+                            textarea(class='form-control' name=ask.id id=ask.id type=ask.type placeholder=ask.placeholder aria-describedby=ask.idhelp rows=ask.rows required)
+
+                        else 
+                            input(class='form-control' name=ask.id id=ask.id type=ask.type placeholder=ask.placeholder aria-describedby=ask.idhelp rows=ask.rows required)
+                                            
+                        if ask.description
+                            small(id=ask.idhelp class="form-text text-muted") #{ask.description} 
+
+                button(type="submit" class="btn btn-primary") Maak publicatie
+
+
+
+
+
+
+
