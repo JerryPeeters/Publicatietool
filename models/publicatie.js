@@ -61,6 +61,7 @@ exports.getForm = function() {
             'label': 'Korte omschrijving van het plan:',
             'rows': '5',
             'id': 'omschrijving1',
+            'description': 'Dit moet een korte beschrijving zijn die in de eerste alinea van de publicatie komt te staan. Wat kenmerkt dit besluit? Maakt het woningbouw mogelijk? Is het een technische aanpassing?',
             'placeholder': 'Het plan voorziet een planologisch kader voor de ontwikkeling van 150 woningen.'
         },
         'locatie_omschrijving': {
