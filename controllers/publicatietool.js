@@ -20,6 +20,7 @@ router.post('/create', async function(req, res, next) {
   };
 
     //prepare everything for the docxBuilder model
+  publicatie.cleanInput(docxInput);
   publicatie.setType(docxInput);
   publicatie.setTerms(docxInput);  
   publicatie.formatDutchDates(docxInput);

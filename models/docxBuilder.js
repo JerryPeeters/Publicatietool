@@ -21,8 +21,9 @@ async function create(data, template, outputname) { //async, so return promise o
     doc.loadZip(zip);
 
     doc.setData(data);    
-
+try {
     doc.render();
+} catch (err) {throw err};
 
     let buffer = doc.getZip()
                     .generate({type: 'nodebuffer'});
