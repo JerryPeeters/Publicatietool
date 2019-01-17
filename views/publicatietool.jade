@@ -3,127 +3,154 @@ html
         title Publicatietool
         link(href="/bootstrap/css/bootstrap.min.css" rel="stylesheet")
         style.
-            .pageTitle {
-                padding-top: 30px;
-                padding-bottom: 100px;
+            .jumbotron {
+                background: url('/images/inntel.jpg');
+                color: white;
             }
             .form-row {
-                padding-bottom: 20px;
+                padding-top: 25px;
+                padding-bottom: 45px;
+            }
+            .form-group {
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+            .w-100 {
+                padding-top:25px;
+                padding-bottom:45px;
             }
 
-    body
-        .container.pageTitle
-            .text-center
-                h1 Publicatietool
-                h6 
-                |Voor het opstellen van standaardpublicaties. 
-                br 
-                |Makkelijk, simpel en betrouwbaar.
-        .container
-            
-            form(action="/publicatietool/create" method="POST")
-                
-                .form-row.justify-content-between.align-items-end
-                    .col-3-sm
-                        label Emailadres
-                        input.form-control#email(type='email', name='email' placeholder='voorbeeld@zaanstad.nl' aria-describedby='emailHelp' required)
-                        small.form-text.text-muted#emailHelp De publicatiebestanden worden naar dit emailadres gestuurd. 
+    body(style='background-color:#f8f9fa')
 
-                
-                .form-row.justify-content-between.align-items-end
-                    .col-4-sm
-                        label Welk type besluit betreft het?
-                        select.form-control#besluittype(name='besluittype' required)
-                            option Ontwerpbestemmingsplan
-                            option Vaststelling bestemmingsplan
-                
-                .form-row.justify-content-between.align-items-end
-                    .col-6-sm
-                        label Naam van het plan:
-                        input.form-control#plannaam(type='text' name='plannaam' aria-describedby='plannaamHelp' required)
-                        small.form-text.text-muted#plannaamHelp Plannaam, zonder bestemmingsplan ervoor. Dus 'Pauwenven' en niet 'bestemmingsplan Pauwenven'
-                
-                .form-row.justify-content-between.align-items-end
-                    .col-2-sm
-                        label Besluitdatum:
-                        input.form-control#besluitdatum(type='date' name='besluitdatum' required)
-                    .col-2-sm
-                        label Publicatiedatum:
-                        input.form-control#publicatiedatum(type='date' name='publicatiedatum' required)
-                    .col-4-sm
-                        label Laatste gedeelte van de IMRO-code:
-                        input.form-control#stednummer(type='text' name='stednummer' placeholder='3837BP-0301' required)
-                    .col-4-sm
-                        label Verseonnummer besluit:
-                        input.form-control#verseonnummer(type='text' name='verseonnummer' placeholder='2019/5431' required)
-                
-                .form-group
-                    label Korte omschrijving van het plan:
-                    textarea.form-control#omschrijving1(name='omschrijving1' rows='5' placeholder='Het plan voorziet een planologisch kader voor de ontwikkeling van 150 woningen.' aria-describedby='omschrijving1Help' required)
-                    small.form-text.text-muted#omschrijving1Help Dit moet een korte beschrijving zijn die in de eerste alinea van de publicatie komt te staan. Wat kenmerkt dit besluit? Maakt het woningbouw mogelijk? Is het een technische aanpassing?
-                
-                .form-group
-                    label Omschrijving van de locatie:
-                    textarea.form-control#locatie_omschrijving(name='locatie_omschrijving' rows='5' placeholder='Het plangebied wordt globaal begrensd door: de Dorpsstraat in het noorden, de Bakkerstraat in het oosten, de Kerkstraat in het zuiden en de Molenstraat in het westen.' required)
-                
-                .form-row.justify-content-between.align-items-end
-                    .col
-                        label Wordt ook een (ontwerp)besluit hogere waarden bekendgemaakt?
-                        select.form-control#hasHGW(name='hasHGW' required)
-                            option Nee
-                            option Ja
-                    .col-4-sm.hasHGW(style='display:none')
-                        label Besluitdatum van het hogere waarden besluit:
-                        input.form-control#besluitdatum_HGW(name='besluitdatum_HGW' type='date')
-                
-                .form-group.hasHGW(style='display:none')
-                    label Korte omschrijving van het hogere waarden besluit:
-                    textarea.form-control#omschrijving_HGW(name='omschrijving_HGW' rows='5' placeholder='De geluidbelasting als gevolg van het industrielawaai bedraagt op de gevel van de woning aan de Zadelstraat 14 54dB(A). Dit is hoger dan de voorkeursgrenswaarde van 50dB(A) die geldt voor nieuwe woningen. Daarom wordt voor deze woning een hogere grenswaarde vastgesteld.')
-                
-                .form-group.VastBP(style='display:none')
-                    label Is op dit besluit de Crisis- en Herstelwet van toepassing?
-                    select.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
-                        option Nee
-                        option Ja
-                    small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
-                
-                .form-row.justify-content-between.align-items-end.VastBP(style='display:none')
-                    .col
-                        label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
-                        select.form-control#hasGewijzigd(name='hasGewijzigd' required)
-                            option Nee
-                            option Ja
-                .form-row.justify-content-between.align-items-end.OntwerpBP
-                    .col
-                        label Is uit de m.e.r.-beoordeling gebleken dat er geen m.e.r.-procedure noodzakelijk is?
-                        select.form-control#hasMER(name='hasMER' required)
-                            option Nee
-                            option Ja
+        .container(style='padding-top:32px')
 
-                .form-row.justify-content-between.align-items-end.OntwerpBP
-                    .col
-                        label Wordt er voor dit plan een inloop- of informatiebijeenkomst georganiseerd?
-                        select.form-control#hasInloop(name='hasInloop' required)
-                            option Nee
-                            option Ja
+            .jumbotron
+                .text-center
+                    h1.display-4 Publicatietool
+                    p.lead 
+                    |Voor het opstellen van standaardpublicaties. 
+                    br 
+                    |Makkelijk, simpel en betrouwbaar.
 
-                .form-group.hasInloop.OntwerpBP(style='display:none')
-                    label Uitnodigingstekst voor de inloop- of informatiebijeenkomst:
-                    textarea.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
-                
-                .form-row.justify-content-between.align-items-end
-                    .col-2-sm
-                        select.form-control#aanhef_contactpersoon(name='aanhef_contactpersoon' required)
-                            option dhr.
-                            option mevr.
-                    .col-sm
-                        label Contactpersoon voor vragen en mondelinge zienswijzen:
-                        input.form-control#contactpersoon(name='contactpersoon' type='text' placeholder='J. de Vries' required)
-                .form-group
-                    label Wanneer is de contactpersoon bereikbaar?
-                    input.form-control#bereikbaarheid_contactpersoon(name='bereikbaarheid_contactpersoon' type='text' placeholder='tussen 10:00 en 11:00, behalve op woensdagen.' required)
-                    
-                button(type="submit" class="btn btn-primary") Maak publicatie
+            .row.justify-content-center(style='margin-bottom:100px')
+                .col-lg-9.col(style='background-color:white;padding-left:70px;padding-right:70px').rounded
+                    form(action="/publicatietool/create" method="POST")
+                        
+                        .form-row.justify-content-center.align-items-end
+                            .col-3-sm
+                                label Emailadres:
+                                input.form-control#email(type='email', name='email' placeholder='voorbeeld@zaanstad.nl' aria-describedby='emailHelp' required)
+                                small.form-text.text-muted#emailHelp De publicatiebestanden worden naar dit emailadres gestuurd. 
+
+                        
+                        .form-row.justify-content-center
+                            .col-4-sm(style='margin-top:32px')
+                                select.form-control#besluittype(name='besluittype' required)
+                                    option Ontwerpbestemmingsplan
+                                    option Vaststelling bestemmingsplan
+                            .col-sm-auto
+                                label Plannaam:
+                                input.form-control#plannaam(type='text' name='plannaam' aria-describedby='plannaamHelp' required)
+                                small.form-text.text-muted#plannaamHelp Zonder 'bestemmingsplan' ervoor. 
+                                                                        br
+                                                                        |Dus 'Pauwenven' en niet 'bestemmingsplan Pauwenven'
+                        
+                        .form-row.justify-content-between.align-items-end
+                            .col-md-3.col-auto
+                                label Besluitdatum:
+                                input.form-control#besluitdatum(type='date' name='besluitdatum' required)
+                            .col-md-3.col-auto
+                                label Publicatiedatum:
+                                input.form-control#publicatiedatum(type='date' name='publicatiedatum' required)
+                            .col-md-3.col-auto
+                                label Laatste gedeelte van de IMRO-code:
+                                input.form-control#stednummer(type='text' name='stednummer' placeholder='3837BP-0301' required)
+                            .col-md-3.col-auto
+                                label Verseonnummer besluit:
+                                input.input-sm.form-control#verseonnummer(type='text' name='verseonnummer' placeholder='2019/5431' required)
+                        
+                        .form-group
+                            label Korte omschrijving van het plan:
+                            textarea.form-control#omschrijving1(name='omschrijving1' rows='8' placeholder='Het plan voorziet een planologisch kader voor de ontwikkeling van 150 woningen.' aria-describedby='omschrijving1Help' required)
+                            small.form-text.text-muted#omschrijving1Help Dit moet een korte beschrijving zijn die in de eerste alinea van de publicatie komt te staan. Wat kenmerkt dit besluit? Maakt het woningbouw mogelijk? Is het een technische aanpassing?
+                        
+                        .form-group
+                            label Omschrijving van de locatie:
+                            textarea.form-control#locatie_omschrijving(name='locatie_omschrijving' rows='5' placeholder='Het plangebied wordt globaal begrensd door: de Dorpsstraat in het noorden, de Bakkerstraat in het oosten, de Kerkstraat in het zuiden en de Molenstraat in het westen.' required)
+                        
+                        .form-row.justify-content-center.align-items-end
+                            .col-lg-5.OntwerpBP
+                                label Is uit de m.e.r.-beoordeling gebleken dat er geen m.e.r.-procedure noodzakelijk is?
+                                select.form-control#hasMER(name='hasMER' required)
+                                    option Nee
+                                    option Ja
+                                    
+                            .w-100.VastBP(style='display:none')
+
+                            .col-lg-5.VastBP(style='display:none')
+                                label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
+                                select.form-control#hasGewijzigd(name='hasGewijzigd' required)
+                                    option Nee
+                                    option Ja
+                        
+                            .w-100.VastBP(style='display:none')
+
+                            .col-lg-5.VastBP(style='display:none')
+                                label Is op dit besluit de Crisis- en Herstelwet van toepassing?
+                                select.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
+                                    option Nee
+                                    option Ja
+                                small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
+
+                            .w-100
+
+                            .col-lg-5
+                                label Wordt ook een (ontwerp)besluit hogere waarden bekendgemaakt?
+                                select.form-control#hasHGW(name='hasHGW' required)
+                                    option Nee
+                                    option Ja
+                            
+                            .w-100.hasHGW(style='display:none')
+
+                            .col-sm-4.hasHGW(style='display:none')
+                                label Besluitdatum van het hogere waarden besluit:
+                                input.form-control#besluitdatum_HGW(name='besluitdatum_HGW' type='date')
+                        
+                            .w-100.hasHGW(style='display:none')
+
+                            .col.hasHGW(style='display:none')
+                                label Korte omschrijving van het hogere waarden besluit:
+                                textarea.form-control#omschrijving_HGW(name='omschrijving_HGW' rows='5' placeholder='De geluidbelasting als gevolg van het industrielawaai bedraagt op de gevel van de woning aan de Zadelstraat 14 54dB(A). Dit is hoger dan de voorkeursgrenswaarde van 50dB(A) die geldt voor nieuwe woningen. Daarom wordt voor deze woning een hogere grenswaarde vastgesteld.')
+
+                            .w-100.OntwerpBP
+
+                            .col-lg-5.OntwerpBP
+                                label Wordt er voor dit plan een inloop- of informatiebijeenkomst georganiseerd?
+                                select.form-control#hasInloop(name='hasInloop' required)
+                                    option Nee
+                                    option Ja
+
+                            .w-100.hasInloop.OntwerpBP(style='display:none')
+
+                            .col.hasInloop.OntwerpBP(style='display:none')
+                                label Uitnodigingstekst voor de inloop- of informatiebijeenkomst:
+                                textarea.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
+                        
+                        .form-row.justify-content-center.align-items-end
+                            .col-auto
+                                select.form-control#aanhef_contactpersoon(name='aanhef_contactpersoon' required)
+                                    option dhr.
+                                    option mevr.
+                            .col-sm-auto
+                                label Contactpersoon voor vragen en mondelinge zienswijzen:
+                                input.form-control#contactpersoon(name='contactpersoon' type='text' placeholder='J. de Vries' required)
+
+                        .form-row.justify-content-center
+                            .col-lg-6.col-auto
+                                label Wanneer is de contactpersoon bereikbaar?
+                                textarea.form-control#bereikbaarheid_contactpersoon(name='bereikbaarheid_contactpersoon' rows='2' placeholder='tussen 10:00 en 11:00, behalve op woensdagen.' required)
+                        .form-row.justify-content-center
+                            button(type="submit" class="btn btn-primary btn-lg") Maak publicatie
     footer
         script(src='js/publicatieFormHandler.js')
 

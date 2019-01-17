@@ -49,7 +49,7 @@ router.post('/create', async function(req, res, next) {
   let sent = await mailer.send(messageData);
   
   if (sent.accepted) {
-    res.sendFile(path.join(__dirname, '../', 'public', 'html', 'success.html'));
+    res.render('publicatietoolsuccess');
   } else {
     throw new Error('Failed to send email.');
   };

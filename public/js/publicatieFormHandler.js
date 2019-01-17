@@ -39,7 +39,6 @@ function updatePublicatieForm(event) {
     let elementId = element.id;
     
     if (element.value === 'Ja') {
-        console.log(elementId);
         showClass(element.id);
     } else if (element.value === 'Nee') {
         hideClass(elementId);
