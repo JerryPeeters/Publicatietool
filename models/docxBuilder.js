@@ -12,7 +12,7 @@ async function create(data, template, outputname) { //async, so return promise o
 
     let content = await fs
         .readFile(path.resolve(__dirname, 'docxtemplates', template));
-        
+
 
     let zip = new JSZip(content);
  

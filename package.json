@@ -15,6 +15,7 @@
     "jszip": "^2.6.1",
     "jszip-utils": "0.0.2",
     "morgan": "~1.9.0",
-    "nodemailer": "^5.1.1"
+    "nodemailer": "^5.1.1",
+    "path": "^0.12.7"
   }
 }
