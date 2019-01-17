@@ -26,7 +26,9 @@ html
                 .form-row.justify-content-between.align-items-end
                     .col-3-sm
                         label Emailadres
-                        input.form-control#email(type='email', name='email' placeholder='voorbeeld@zaanstad.nl' required)
+                        input.form-control#email(type='email', name='email' placeholder='voorbeeld@zaanstad.nl' aria-describedby='emailHelp' required)
+                        small.form-text.text-muted#emailHelp De publicatiebestanden worden naar dit emailadres gestuurd. 
+
                 
                 .form-row.justify-content-between.align-items-end
                     .col-4-sm
@@ -50,7 +52,7 @@ html
                         input.form-control#publicatiedatum(type='date' name='publicatiedatum' required)
                     .col-4-sm
                         label Laatste gedeelte van de IMRO-code:
-                        input.form-control#stednummer(type='text' name='stednummer' placeholder='STED3837BP-0301' required)
+                        input.form-control#stednummer(type='text' name='stednummer' placeholder='3837BP-0301' required)
                     .col-4-sm
                         label Verseonnummer besluit:
                         input.form-control#verseonnummer(type='text' name='verseonnummer' placeholder='2019/5431' required)
