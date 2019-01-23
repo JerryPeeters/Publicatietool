@@ -69,19 +69,23 @@ html
                                                                         br
                                                                         |Dus 'Pauwenven' en niet 'bestemmingsplan Pauwenven'
                         
-                        .form-row.justify-content-between.align-items-end
-                            .col-md-3.col-auto
-                                label Besluitdatum:
-                                input.boxStyle.form-control#besluitdatum(type='date' name='besluitdatum' required)
-                            .col-md-3.col-auto
-                                label Publicatiedatum:
-                                input.boxStyle.form-control#publicatiedatum(type='date' name='publicatiedatum' required)
+                        .form-row.justify-content-around.align-items-start
                             .col-md-3.col-auto
                                 label Laatste gedeelte van de IMRO-code:
-                                input.boxStyle.form-control#stednummer(type='text' name='stednummer' placeholder='3837BP-0301' required)
+                                .col-auto
+                                    input.boxStyle.form-control#stednummer(type='text' name='stednummer' placeholder='3837BP-0301' required)
                             .col-md-3.col-auto
                                 label Verseonnummer besluit:
                                 input.boxStyle.input-sm.form-control#verseonnummer(type='text' name='verseonnummer' placeholder='2019/5431' required)
+                            .w-100
+                            .col-md-3.col-auto
+                                label Besluitdatum:
+                                input.date.boxStyle.form-control#besluitdatum(type='date' name='besluitdatum' aria-describedby='besluitdatumHelp' required)
+                                small.form-text.text-muted#besluitdatumHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
+                            .col-md-3.col-auto
+                                label Publicatiedatum:
+                                input.date.boxStyle.form-control#publicatiedatum(type='date' name='publicatiedatum' aria-describedby='publicatiedatumHelp' required)
+                                small.form-text.text-muted#publicatiedatumHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                         
                         .form-group
                             label Korte omschrijving van het plan:
@@ -98,48 +102,51 @@ html
                                 select.boxStyle.form-control#hasHGW(name='hasHGW' required)
                                     option Nee
                                     option Ja
-                            .form-row.justify-content-center.align-items-end#optionalhasHGW
+                        #optionalhasHGW    
+                            .form-row.justify-content-center.align-items-end
                                 .col-sm-4
                                     label Besluitdatum van het hogere waarden besluit:
-                                    input.boxStyle.form-control#besluitdatum_HGW(name='besluitdatum_HGW' type='date')
+                                    input.date.boxStyle.form-control#besluitdatum_HGW(name='besluitdatum_HGW' type='date' aria-describedby='besluitdatum_HGWHelp')
+                                    small.form-text.text-muted#besluitdatum_HGWHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                                 .w-100
                                 .col
                                     label Korte omschrijving van het hogere waarden besluit:
                                     textarea.textBoxStyle.form-control#omschrijving_HGW(name='omschrijving_HGW' rows='5' placeholder='De geluidbelasting als gevolg van het industrielawaai bedraagt op de gevel van de woning aan de Zadelstraat 14 54dB(A). Dit is hoger dan de voorkeursgrenswaarde van 50dB(A) die geldt voor nieuwe woningen. Daarom wordt voor deze woning een hogere grenswaarde vastgesteld.')
 
-
-                        .form-row.justify-content-center.align-items-end#optionalbesluittype0
-                            .col-lg-5
-                                label Is uit de m.e.r.-beoordeling gebleken dat er geen m.e.r.-procedure noodzakelijk is?
-                                select.boxStyle.form-control#hasMER(name='hasMER' required)
-                                    option Nee
-                                    option Ja
-                            .w-100
-                            .col-lg-5
-                                label Wordt er voor dit plan een inloop- of informatiebijeenkomst georganiseerd?
-                                select.boxStyle.form-control#hasInloop(name='hasInloop' required)
-                                    option Nee
-                                    option Ja
+                        #optionalbesluittype0
+                            .form-row.justify-content-center.align-items-end
+                                .col-lg-5
+                                    label Is uit de m.e.r.-beoordeling gebleken dat er geen m.e.r.-procedure noodzakelijk is?
+                                    select.boxStyle.form-control#hasMER(name='hasMER' required)
+                                        option Nee
+                                        option Ja
+                                .w-100
+                                .col-lg-5
+                                    label Wordt er voor dit plan een inloop- of informatiebijeenkomst georganiseerd?
+                                    select.boxStyle.form-control#hasInloop(name='hasInloop' required)
+                                        option Nee
+                                        option Ja
+                                
+                            #optionalhasInloop
+                                .justify-content-center.align-items-end
+                                    .col
+                                        label Uitnodigingstekst voor de inloop- of informatiebijeenkomst:
+                                        textarea.TextBoxStyle.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
                             
-                            .w-100.justify-content-center.align-items-end#optionalhasInloop
-                                .col
-                                    label Uitnodigingstekst voor de inloop- of informatiebijeenkomst:
-                                    textarea.TextBoxStyle.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
-                        
-                        .form-row.justify-content-center.align-items-end#optionalbesluittype1
-                            .w-100
-                            .col-lg-5.VastBP
-                                label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
-                                select.boxStyle.form-control#hasGewijzigd(name='hasGewijzigd' required)
-                                    option Nee
-                                    option Ja
-
-                            .col-lg-5.VastBP
-                                label Is op dit besluit de Crisis- en Herstelwet van toepassing?
-                                select.boxStyle.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
-                                    option Nee
-                                    option Ja
-                                small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
+                        #optionalbesluittype1
+                            .form-row.justify-content-center.align-items-end
+                                .col-lg-5.VastBP
+                                    label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
+                                    select.boxStyle.form-control#hasGewijzigd(name='hasGewijzigd' required)
+                                        option Nee
+                                        option Ja
+                                .w-100
+                                .col-lg-5.VastBP
+                                    label Is op dit besluit de Crisis- en Herstelwet van toepassing?
+                                    select.boxStyle.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
+                                        option Nee
+                                        option Ja
+                                    small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
 
                         
                         .form-row.justify-content-center.align-items-end
@@ -158,7 +165,9 @@ html
                         .form-row.justify-content-center
                             button(type="submit" class="btn btn-primary btn-lg") Maak publicatie
     footer
-        script(src='js/publicatieFormHandler.js')
+        script(src='js/formHandler.js')
+        script(src='js/publicatieform.js')
+        
 
 
 

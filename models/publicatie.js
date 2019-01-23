@@ -11,6 +11,15 @@ exports.cleanInput = function(obj) {
             obj[val] = false;
         }
     }
+
+    function cleanDate(date) { //if input is not a date, then return todays date
+        return (new Date(date) !== "Invalid Date" && !isNaN(new Date(date)) ) ? new Date(date) 
+               : new Date(Date.now());
+    };
+
+    obj.publicatiedatum = cleanDate(obj.publicatiedatum);
+    obj.besluitdatum = cleanDate(obj.besluitdatum);
+        
 }
 
 exports.formatDutchDates = function(obj) {
@@ -64,14 +73,13 @@ exports.setTerms = function(obj) {
     let day = (1000*60*60*24);
     let sevenWeeks = (day*7*6);
   
-    let date = new Date(obj.publicatiedatum);
+    let date = obj.publicatiedatum
+    
     let dateStart = new Date( date.getTime() + day); //Plus 1 day
     let dateEnd = (obj.type === 'VastBP') ?
                    new Date(dateStart.getTime() + day + sevenWeeks) :
                    new Date(dateStart.getTime() + sevenWeeks);
 
-    obj.besluitdatum = new Date(obj.besluitdatum);
-    obj.publicatiedatum = date;
     obj.start_terinzagelegging = dateStart;
     obj.einde_terinzagelegging = dateEnd;
 }
