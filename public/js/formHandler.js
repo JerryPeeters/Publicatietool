@@ -24,7 +24,7 @@ let formHandler = {
     setListeners: function () {
         for (let id in this.initValues) {
             let element = document.getElementById(id);
-            element.addEventListener ? element.addEventListener("change", function(event){ this.updateForm(event) } )
+            element.addEventListener ? element.addEventListener("change", function(event){ formHandler.updateForm(event) } )
             : element.attachEvent("onchange", function(event){ this.updateForm(event) }) //God bless IE
         }
     },
