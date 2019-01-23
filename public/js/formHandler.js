@@ -17,12 +17,18 @@ let formHandler = {
         this.initValues = obj; //store initValues, never touch them
         this.storage = {}; //storage obj for DOM children
 
-        for (let id in obj) {
-            document.getElementById(id).addEventListener("change", event => this.updateForm(event) );
-        }
+        this.setListeners();
         this.updateForm(); //defaults to checking all initValues, if Arg instanceof Event get id, if arg is string => id, else check all
     },
  
+    setListeners: function () {
+        for (let id in this.initValues) {
+            let element = document.getElementById(id);
+            element.addEventListener ? element.addEventListener("change", event => this.updateForm(event) )
+            : fileURLToPath.attachEven("onchange", event => this.updateForm(event)) //God bless IE
+        }
+    },
+
     updateForm: function (arg) {
         let id = (arg instanceof Event) ? arg.target.id 
                : (typeof arg === "string") ? arg 
@@ -85,10 +91,6 @@ let formHandler = {
             element.appendChild(child);
         };
             //removing element (and storing it) als removes eventlistener, so we re-add it here
-        for (let id in this.initValues) { 
-            if (document.getElementById(id)) {
-                document.getElementById(id).addEventListener("change", event => this.updateForm(event) );
-            }           
-        };
+        this.setListeners();         
     }
 }
