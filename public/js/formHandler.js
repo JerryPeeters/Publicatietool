@@ -1,14 +1,18 @@
 'use strict';
 
-//abstract form handler and hider
+/*  abstract form handler and hider
 
-//takes objects with 'Id': 'trueValue' ie. 'hasCar': 'yes'
-//truevalue can also be an array 'Id': ['option0', 'option1', etc]
-//if multieple options, name the optionals optional+Id+0 and count up.
+takes objects with 'Id': 'trueValue' ie. 'hasCar': 'yes'
+truevalue can also be an array 'Id': ['option0', 'option1', etc]
+if multieple options, name the optionals optional+Id+0 and count up.
+
+IE11 can't handle init(obj) {}. It won't see the key.
+
+*/
 
 let formHandler = {
     
-    init(obj) {
+    init: function (obj) {
 
         this.initValues = obj; //store initValues, never touch them
         this.storage = {}; //storage obj for DOM children
@@ -19,7 +23,7 @@ let formHandler = {
         this.updateForm(); //defaults to checking all initValues, if Arg instanceof Event get id, if arg is string => id, else check all
     },
  
-    updateForm(arg) {
+    updateForm: function (arg) {
         let id = (arg instanceof Event) ? arg.target.id 
                : (typeof arg === "string") ? arg 
                : false;
@@ -50,7 +54,7 @@ let formHandler = {
             }
         }
     },
-    removeOptions(id) { //only for internal use
+    removeOptions: function (id) { //only for internal use
 
         let element = document.getElementById('optional' + id); //returns HTMLCollection
         if (!element.hasChildNodes()) return; //if already empty, return
@@ -65,7 +69,7 @@ let formHandler = {
             element.removeChild(element.firstChild);
         };
     },
-    appendOptions(id) {
+    appendOptions: function (id) {
 
         let element = document.getElementById('optional' + id);
        
