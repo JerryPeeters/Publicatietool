@@ -25,7 +25,7 @@ let formHandler = {
         for (let id in this.initValues) {
             let element = document.getElementById(id);
             element.addEventListener ? element.addEventListener("change", event => this.updateForm(event) )
-            : fileURLToPath.attachEven("onchange", event => this.updateForm(event)) //God bless IE
+            : element.attachEven("onchange", event => this.updateForm(event)) //God bless IE
         }
     },
 
