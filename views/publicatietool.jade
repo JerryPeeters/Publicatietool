@@ -106,12 +106,27 @@ html
                             .form-row.justify-content-center.align-items-end
                                 .col-sm-4
                                     label Besluitdatum van het hogere waarden besluit:
-                                    input.date.boxStyle.form-control#besluitdatum_HGW(name='besluitdatum_HGW' type='date' aria-describedby='besluitdatum_HGWHelp')
+                                    input.date.boxStyle.form-control#besluitdatum_HGW(required name='besluitdatum_HGW' type='date' aria-describedby='besluitdatum_HGWHelp')
                                     small.form-text.text-muted#besluitdatum_HGWHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                                 .w-100
                                 .col
                                     label Korte omschrijving van het hogere waarden besluit:
-                                    textarea.textBoxStyle.form-control#omschrijving_HGW(name='omschrijving_HGW' rows='5' placeholder='De geluidbelasting als gevolg van het industrielawaai bedraagt op de gevel van de woning aan de Zadelstraat 14 54dB(A). Dit is hoger dan de voorkeursgrenswaarde van 50dB(A) die geldt voor nieuwe woningen. Daarom wordt voor deze woning een hogere grenswaarde vastgesteld.')
+                                    textarea.textBoxStyle.form-control#omschrijving_HGW(name='omschrijving_HGW' rows='5' required placeholder='De geluidbelasting als gevolg van het industrielawaai bedraagt op de gevel van de woning aan de Zadelstraat 14 54dB(A). Dit is hoger dan de voorkeursgrenswaarde van 50dB(A) die geldt voor nieuwe woningen. Daarom wordt voor deze woning een hogere grenswaarde vastgesteld.')
+
+                        #optionalbesluittype1
+                            .form-row.justify-content-center.align-items-end
+                                .col-lg-5.VastBP
+                                    label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
+                                    select.boxStyle.form-control#hasGewijzigd(name='hasGewijzigd' required)
+                                        option Nee
+                                        option Ja
+                                .w-100
+                                .col-lg-5.VastBP
+                                    label Is op dit besluit de Crisis- en Herstelwet van toepassing?
+                                    select.boxStyle.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
+                                        option Nee
+                                        option Ja
+                                    small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
 
                         #optionalbesluittype0
                             .form-row.justify-content-center.align-items-end
@@ -131,37 +146,21 @@ html
                                 .justify-content-center.align-items-end
                                     .col
                                         label Uitnodigingstekst voor de inloop- of informatiebijeenkomst:
-                                        textarea.TextBoxStyle.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
-                            
-                        #optionalbesluittype1
+                                        textarea.TextBoxStyle.form-control#omschrijving_inloop(name='omschrijving_inloop' rows='5' required placeholder='Op 1 januari 2020 wordt een inloopavond georganiseerd waar u een toelichting kunt krijgen op het plan. De avond vindt plaats van 19:00 tot 20:00 in buurtcentrum De Enthousiaste Kabouter, Dorpsstraat 101 te Zaandam')
+                                                  
                             .form-row.justify-content-center.align-items-end
-                                .col-lg-5.VastBP
-                                    label Is het bestemmingsplan bij de vaststelling gewijzigd ten opzichte van het ontwerp?
-                                    select.boxStyle.form-control#hasGewijzigd(name='hasGewijzigd' required)
-                                        option Nee
-                                        option Ja
-                                .w-100
-                                .col-lg-5.VastBP
-                                    label Is op dit besluit de Crisis- en Herstelwet van toepassing?
-                                    select.boxStyle.form-control#hasCHW(name='hasCHW' aria-describedby='hasCHWHelp' required)
-                                        option Nee
-                                        option Ja
-                                    small.form-text.text-muted#hasCHWHelp Voor sommige ontwikkelingen heeft de wetgever bepaald dat een bestemmingsplan automatisch onder de Chw valt.
+                                .col-auto
+                                    select.boxStyle.form-control#aanhef_contactpersoon(name='aanhef_contactpersoon' required)
+                                        option dhr.
+                                        option mevr.
+                                .col-sm-auto
+                                    label Contactpersoon voor vragen en mondelinge zienswijzen:
+                                    input.boxStyle.form-control#contactpersoon(name='contactpersoon' type='text' placeholder='J. de Vries' required)
 
-                        
-                        .form-row.justify-content-center.align-items-end
-                            .col-auto
-                                select.boxStyle.form-control#aanhef_contactpersoon(name='aanhef_contactpersoon' required)
-                                    option dhr.
-                                    option mevr.
-                            .col-sm-auto
-                                label Contactpersoon voor vragen en mondelinge zienswijzen:
-                                input.boxStyle.form-control#contactpersoon(name='contactpersoon' type='text' placeholder='J. de Vries' required)
-
-                        .form-row.justify-content-center
-                            .col-lg-6.col-auto
-                                label Wanneer is de contactpersoon bereikbaar?
-                                textarea.textBoxStyle.form-control#bereikbaarheid_contactpersoon(name='bereikbaarheid_contactpersoon' rows='2' placeholder='tussen 10:00 en 11:00, behalve op woensdagen.' required)
+                            .form-row.justify-content-center
+                                .col-lg-6.col-auto
+                                    label Wanneer is de contactpersoon bereikbaar?
+                                    textarea.textBoxStyle.form-control#bereikbaarheid_contactpersoon(name='bereikbaarheid_contactpersoon' rows='2' placeholder='tussen 10:00 en 11:00, behalve op woensdagen.' required)
                         .form-row.justify-content-center
                             button(type="submit" class="btn btn-primary btn-lg") Maak publicatie
     footer
