@@ -44,7 +44,7 @@ let formHandler = {
             
             if (targetValue instanceof Array) { //multiple options
                 for (let i = 0; i < targetValue.length; i++) {
-                    let newId = `${id}` + i;
+                    let newId = id + i;
                     
                     if (targetValue[i] === value) {
                         this.appendOptions(newId);
