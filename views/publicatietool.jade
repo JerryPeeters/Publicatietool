@@ -1,10 +1,10 @@
-html
+html(lang='nl')
     head
         title Publicatietool
-        link(href="/bootstrap/css/bootstrap.min.css" rel="stylesheet")
+        link(href="/publicatietool/bootstrap/css/bootstrap.min.css" rel="stylesheet")
         style.
             .jumbotron {
-                background: url('/images/inntel.jpg');
+                background: url('/publicatietool/images/inntel.jpg');
                 color: white;
             }
             .form-row {
@@ -80,11 +80,11 @@ html
                             .w-100
                             .col-md-3.col-auto
                                 label Besluitdatum:
-                                input.date.boxStyle.form-control#besluitdatum(type='date' name='besluitdatum' aria-describedby='besluitdatumHelp' required)
+                                input.date.boxStyle.form-control#besluitdatum(type='date' data-polyfill='all' name='besluitdatum' aria-describedby='besluitdatumHelp' required)
                                 small.form-text.text-muted#besluitdatumHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                             .col-md-3.col-auto
                                 label Publicatiedatum:
-                                input.date.boxStyle.form-control#publicatiedatum(type='date' name='publicatiedatum' aria-describedby='publicatiedatumHelp' required)
+                                input.date.boxStyle.form-control#publicatiedatum(type='date' data-polyfill='all' name='publicatiedatum' aria-describedby='publicatiedatumHelp' required)
                                 small.form-text.text-muted#publicatiedatumHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                         
                         .form-group
@@ -106,7 +106,7 @@ html
                             .form-row.justify-content-center.align-items-end
                                 .col-sm-4
                                     label Besluitdatum van het hogere waarden besluit:
-                                    input.date.boxStyle.form-control#besluitdatum_HGW(required name='besluitdatum_HGW' type='date' aria-describedby='besluitdatum_HGWHelp')
+                                    input.date.boxStyle.form-control#besluitdatum_HGW(required name='besluitdatum_HGW' type='date' data-polyfill='all' aria-describedby='besluitdatum_HGWHelp')
                                     small.form-text.text-muted#besluitdatum_HGWHelp Klik op de juiste datum, of geef de datum in deze format: YYYY/MM/DD.
                                 .w-100
                                 .col
@@ -162,10 +162,19 @@ html
                                     label Wanneer is de contactpersoon bereikbaar?
                                     textarea.textBoxStyle.form-control#bereikbaarheid_contactpersoon(name='bereikbaarheid_contactpersoon' rows='2' placeholder='tussen 10:00 en 11:00, behalve op woensdagen.' required)
                         .form-row.justify-content-center
+                            .col-sm-auto
+                                label 
+                                    i Controlevraag 
+                                    br
+                                    |In welke plaats staat het stadhuis van de gemeente Zaanstad?
+                                input.boxStyle.form-control#controlevraag(type='text' name='controlevraag' required)
+                            .w-100
                             button(type="submit" class="btn btn-primary btn-lg") Maak publicatie
     footer
-        script(src='js/formHandler.js')
-        script(src='js/publicatieform.js')
+        script(src='/publicatietool/js/formHandler.js')
+        script(src='/publicatietool/js/publicatieform.js')
+        script(src='/publicatietool/js/date-input-polyfill.dist.js')
+
         
 
 

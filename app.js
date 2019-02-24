@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexController = require('./controllers/index');
-var userController = require('./controllers/users');
 let publicatietoolController = require('./controllers/publicatietool');
 
 var app = express();
@@ -21,8 +19,6 @@ app.use(cookieParser());
 //public should not be part of the req path ie. /bootstrap/css/...
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexController);
-app.use('/users', userController);
 app.use('/publicatietool', publicatietoolController);
 
 // catch 404 and forward to error handler

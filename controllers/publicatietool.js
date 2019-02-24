@@ -6,12 +6,29 @@ let docx = require('../models/docxBuilder');
 let publicatie = require('../models/publicatie')
 let path = require('path');
 
-/* GET users listing. */
+router.get('/', (req, res) => {
+  res.render('publicatietool');
+});
+
 router.post('/create', async function(req, res, next) {
 
-  if (!req.body) {
-    return new Error('No form data found.');
-  }
+    /* Chinese abuse checker
+    Can't check typeof without req.body = true,
+    will throw error otherwise.
+    Ternary will assign value at first true, so it wont 
+    throw an error if there is no req.body because
+    it won't get to the typeof check. */
+  let passCheck = !req.body ? false :
+                  !(typeof req.body.controlevraag === 'string') ? false :
+                  (req.body.controlevraag.length > 8) ? false :
+                  req.body.controlevraag.includes('Zaandam') ? true :
+                  req.body.controlevraag.includes('zaandam') ? true :
+                  false;
+  
+  if (!passCheck) {
+    console.log('passCheck failed.');
+    next();
+  };
 
     //extract input from body
   let docxInput = {};
@@ -46,17 +63,16 @@ router.post('/create', async function(req, res, next) {
     attachments: attachments
   };
 
-  let sent = await mailer.send(messageData);
-  
-  if (sent.accepted) {
-    res.render('publicatietoolsuccess');
-  } else {
-    throw new Error('Failed to send email.');
+  try {
+    let sent = await mailer.send(messageData);
+    if (sent.accepted) {
+      res.render('publicatietoolsuccess');
+    };
+  } catch(err) { 
+      console.log(err);
+      next();
   };
 })
 
 module.exports = router;
   
-
-    /*send res 200OK message "Bestanden zijn naar je emailadres 
-    gestuurd, check je spamfolder."*/  
