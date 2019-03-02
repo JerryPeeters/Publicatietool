@@ -57,9 +57,9 @@ router.post('/create', async function(req, res, next) {
     //construct emaildata
   let messageData = {
     to: docxInput.email,
-    from: 'Publicatietool <limbonetbot@gmail.com>',
+    from: 'Publicatietool <publicatietool@gmail.com>',
     subject: 'Geautomatiseerde publicaties',
-    text: 'Beste gebruiker, \n\nBedankt voor het gebruiken van de Publicatietool. Bijgevoegd vind je de publicaties. \n Opmerkingen of feedback? Reageer dan op deze mail.\n\nDeze mail is automatisch verstuurd.\n\n Met vriendelijke groet, \n Jerry Peeters',
+    text: 'Beste gebruiker, \n\nBedankt voor het gebruiken van de Publicatietool. Bijgevoegd vind je de publicaties. \nOpmerkingen of feedback? Reageer dan op deze mail.\n\nDeze mail is automatisch verstuurd.',
     attachments: attachments
   };
 

@@ -1,16 +1,7 @@
 'use strict';
 
 let nodemailer = require('nodemailer');
-
-let serverConfig = {
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: 'limbonetbot@gmail.com',
-        pass: 'automatiseerme!1'
-    }
-};
+let serverConfig = require('../emailCredentials'); //keep credentials off public Github
 
 let transporter = nodemailer.createTransport(serverConfig);
 
