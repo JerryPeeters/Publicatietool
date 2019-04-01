@@ -71,14 +71,15 @@ exports.setTemplates = function(obj) {
 
 exports.setTerms = function(obj) {
     let day = (1000*60*60*24);
-    let sevenWeeks = (day*7*6);
+    let sixWeeks = (day*7*6-day); 
+        //min 1 dag, start donderdag eindigt woensdag
   
     let date = obj.publicatiedatum
     
     let dateStart = new Date( date.getTime() + day); //Plus 1 day
     let dateEnd = (obj.type === 'VastBP') ?
-                   new Date(dateStart.getTime() + day + sevenWeeks) :
-                   new Date(dateStart.getTime() + sevenWeeks);
+                   new Date(dateStart.getTime() + day + sixWeeks) :
+                   new Date(dateStart.getTime() + sixWeeks);
 
     obj.start_terinzagelegging = dateStart;
     obj.einde_terinzagelegging = dateEnd;
